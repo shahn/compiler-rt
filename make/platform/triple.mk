@@ -75,4 +75,8 @@ endif
 ArchEnabledFunctions := $(filter-out $(ArchDisabledFunctions),$(value ArchFunctions.$(Arch)))
 CommonEnabledFunctions := $(filter-out $(CommonDisabledFunctions),$(CommonFunctions_gcc))
 
-FUNCTIONS.builtins := $(CommonEnabledFunctions) $(ArchEnabledFunctions)
+profile_osx := GCDAProfiling InstrProfiling InstrProfilingBuffer \
+                         InstrProfilingFile InstrProfilingPlatformDarwin \
+                         InstrProfilingRuntime InstrProfilingUtil
+
+FUNCTIONS.builtins := $(CommonEnabledFunctions) $(ArchEnabledFunctions) $(profile_osx)
